@@ -4,8 +4,11 @@ services:
     container_name: express-mongo
     restart: always
     build: express-api
+    command: nodemon index.js
     ports:
       - '3000:3000'
+    volumes:
+      - ./express-api:/api
     links:
       - mongo
   mongo:
