@@ -21,8 +21,11 @@ mongoose
   .catch(err => console.log(err));
 
 app.get('/', (req, res) => {
-  res.json({ "message": "Welcome to the todo api." });
+  res.json({ "message": "Welcome to the todo fff api." });
 });
+
+// Require Notes routes
+require('./routes/note.routes.js')(app);
 
 const port = 3000;
 
