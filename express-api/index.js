@@ -20,8 +20,15 @@ mongoose
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
 
+//this avoids CORS issues in localhost. Review for deployment
+app.all('/*', function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
+});
+
 app.get('/', (req, res) => {
-  res.json({ "message": "Welcome to the todo fff api." });
+  res.json({ "message": "Welcome to the todo api." });
 });
 
 // Require Notes routes
